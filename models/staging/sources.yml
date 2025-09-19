@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: nyctaxi_raw
+    database: dbt_db_nyctaxi
+    schema: L1_landing
+    tables:
+      - name: yellow_taxi
+      - name: green_taxi
+      - name: taxi_zone_lookup

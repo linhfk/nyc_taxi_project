@@ -1,6 +1,4 @@
-Welcome to your new dbt project!
-
-### Using the starter project
+### NYC Taxi Trip End to End Cloud Data Pipeline and Data Analysis Project
 
 Try running the following commands:
 - dbt run

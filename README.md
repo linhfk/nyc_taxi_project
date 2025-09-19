@@ -1,4 +1,4 @@
-### NYC Taxi Trip End to End Cloud Data Pipeline and Data Analysis Project
+## NYC Taxi Trip End to End Cloud Data Pipeline and Data Analysis Project
 
 Try running the following commands:
 - dbt run

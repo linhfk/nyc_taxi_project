@@ -1,13 +1,4 @@
 ## NYC Taxi Trip End to End Cloud Data Pipeline and Data Analysis Project
 
-Try running the following commands:
-- dbt run
-- dbt test
-
-
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+### Introduction
+This NYC Taxi Trip Analytics project is an innovative end-to-end Data Engineering pipeline designed to transform urban mobility data into actionable business intelligence. The workflow begins by sourcing Yellow Taxi and Green Taxi data from NYC TLC, followed by storing raw data efficiently in AWS S3 buckets. The data is then meticulously transformed using dbt to ensure accuracy and completeness before being loaded into Snowflake for advanced analytics and querying. To orchestrate the entire process, Apache Airflow automates the data pipeline, while Superset creates visually compelling dashboards that reveal urban movement patterns.

@@ -11,8 +11,8 @@ from airflow.operators.bash import BashOperator
 
 with DAG(
     's3_to_snowflake_dbt',
-    start_date = datetime(2025,9,11),
-    schedule= None, ##@'monthly'later
+    start_date = datetime(2025,1,1),
+    schedule= '@monthly',
     catchup = False,
     description = 'Copy data from S3 to Snowflake raw tables',
     default_args = {
@@ -23,6 +23,8 @@ with DAG(
     
     start = EmptyOperator(task_id = 'start')
 
+
+
     copy_green_taxi = SQLExecuteQueryOperator(
         task_id = 'copy_green_taxt_data',
         sql = '''USE DATABASE dbt_db_nyctaxi;
@@ -31,8 +33,8 @@ with DAG(
             FROM @snow_stage_nyctaxi
             FILE_FORMAT = (TYPE = 'PARQUET')
             MATCH_BY_COLUMN_NAME = 'CASE_INSENSITIVE'
-            PATTERN = 'green_tripdata_2025-01.parquet' 
-        ''',  ##{{ execution_date.strftime("%Y-%m") }}
+            PATTERN = PATTERN = 'green_tripdata_{{ (execution_date - macros.timedelta(days=execution_date.day)).strftime("%Y-%m") }}.parquet' 
+        ''',
         conn_id="snowflake_conn"
     )
     copy_yellow_taxi = SQLExecuteQueryOperator(
@@ -43,7 +45,7 @@ with DAG(
             FROM @snow_stage_nyctaxi
             FILE_FORMAT = (TYPE = 'PARQUET')
             MATCH_BY_COLUMN_NAME = 'CASE_INSENSITIVE'
-            PATTERN = 'yellow_tripdata_2025-01.parquet' 
+            PATTERN = 'yellow_tripdata_{{ (execution_date - macros.timedelta(days=execution_date.day)).strftime("%Y-%m") }}.parquet' 
         ''',  ##{{ execution_date.strftime("%Y-%m") }}
     conn_id="snowflake_conn"
     )
@@ -77,4 +79,3 @@ with DAG(
     end = EmptyOperator(task_id = 'end')
 
 start >> [copy_green_taxi, copy_yellow_taxi] >> dbt_tg >>run_operation_task >> end
-## https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2025-02.parquet

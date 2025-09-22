@@ -21,3 +21,15 @@ The TLC Trip Record Data is a comprehensive and publicly available dataset curat
 * Orchestration: Airflow for workflow automation and monitoring
 
 * Visualization: Looker Studio for interactive dashboards and analytics
+
+### Key Features:
+
+Data Processing Pipeline:
+
+* Implemented incremental loading to handle monthly data updates
+
+* Built slowly changing dimensions (SCD) for location and date data
+
+* Created fact and dimension tables following star schema design
+
+* Automated data quality checks and validation rules

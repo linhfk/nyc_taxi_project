@@ -7,14 +7,17 @@ With its well-orchestrated cloud-native architecture, this project exemplifies m
 
 ## Project Description
 
+## Dataset Description
+The TLC Trip Record Data is a comprehensive and publicly available dataset curated by the New York City Taxi and Limousine Commission. It contains detailed information for hundreds of millions of individual trips taken in Yellow Taxis, Green Taxis, and For-Hire Vehicles (FHVs) like those from Uber and Lyft. For each trip, the data typically includes precise timestamps for pickup and drop-off, the geographic locations (as taxi zone IDs or latitude/longitude coordinates), the trip distance and duration, the itemized fare and toll amounts, the number of passengers, and the method of payment. [Dataset](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+
 ## Technical Architecture:
 
-Data Storage: Raw trip data stored in AWS S3 buckets partitioned by month
+* Data Storage: Raw trip data stored in AWS S3 buckets partitioned by month
 
-Data Warehouse: Snowflake for scalable data processing and analysis
+* Data Warehouse: Snowflake for scalable data processing and analysis
 
-Transformation: dbt (Data Build Tool) for modular SQL transformations
+* Transformation: dbt (Data Build Tool) for modular SQL transformations
 
-Orchestration: Airflow for workflow automation and monitoring
+* Orchestration: Airflow for workflow automation and monitoring
 
-Visualization: Superset for interactive dashboards and analytics
+* Visualization: Looker Studio for interactive dashboards and analytics

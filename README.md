@@ -6,3 +6,15 @@ This NYC Taxi Trip Analytics project is an innovative end-to-end Data Engineerin
 With its well-orchestrated cloud-native architecture, this project exemplifies modern data engineering practices by seamlessly integrating data ingestion, transformation, storage, and visualization into a unified solution. The pipeline processes millions of daily trips to uncover hidden insights about New York City's transportation dynamics, pricing optimization opportunities, and temporal-spatial demand patterns.
 
 ## Project Description
+
+## Technical Architecture:
+
+Data Storage: Raw trip data stored in AWS S3 buckets partitioned by month
+
+Data Warehouse: Snowflake for scalable data processing and analysis
+
+Transformation: dbt (Data Build Tool) for modular SQL transformations
+
+Orchestration: Airflow for workflow automation and monitoring
+
+Visualization: Superset for interactive dashboards and analytics

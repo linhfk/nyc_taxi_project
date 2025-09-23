@@ -244,3 +244,4 @@ This pipeline transforms raw taxi data into strategic insights, enabling:
 
 
 *This project demonstrates proficiency in modern data engineering practices, from problem identification to solution implementation, showcasing the ability to build scalable, maintainable, and production-ready data pipelines that deliver measurable business value.*
+

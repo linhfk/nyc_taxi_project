@@ -1,0 +1,172 @@
+version: 2
+
+models:
+  # Core staging model - adjusted tests for actual data
+  - name: stg_taxi
+    description: "Unified staging table combining yellow and green taxi trip data"
+    columns:
+      - name: trip_id
+        description: "Unique identifier for each trip"
+        tests:
+          - not_null
+
+      - name: vendorid
+        description: "Provider that supplied the record"
+        tests:
+          - not_null
+
+      - name: pickup_date
+        description: "Date when the meter was engaged"
+        tests:
+          - not_null
+
+      - name: pickup_datetime
+        description: "Date and time when the meter was engaged"
+        tests:
+          - not_null
+
+      - name: dropoff_datetime
+        description: "Date and time when the meter was disengaged"
+        tests:
+          - not_null
+
+      - name: passenger_count
+        description: "Number of passengers in the vehicle"
+
+      - name: trip_distance
+        description: "Trip distance in miles reported by the taximeter"
+        tests:
+          - not_null
+
+      - name: ratecodeid
+        description: "Final rate code"
+
+      - name: pulocationid
+        description: "TLC Taxi Zone for pickup"
+        tests:
+          - not_null
+
+      - name: dolocationid
+        description: "TLC Taxi Zone for dropoff"
+
+
+      - name: payment_type
+        description: "Payment method"
+        tests:
+          - not_null
+
+
+      - name: total_amount
+        description: "Total amount charged to passengers"
+        tests:
+          - not_null
+
+      - name: service_type_id
+        description: "Type of taxi service (1=Yellow, 2=Green)"
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1, 2]
+
+  # Fact table tests
+  - name: fact_trip
+    description: "Fact table containing all trip transactions with measures"
+    columns:
+      - name: trip_id
+        description: "Trip identifier"
+        tests:
+          - not_null
+    
+      - name: vendorid
+        description: "Vendor identifier"
+        tests:
+          - not_null
+
+      - name: pickup_date
+        description: "Trip pickup date"
+        tests:
+          - not_null
+
+      - name: service_type_id
+        description: "Service type identifier"
+        tests:
+          - not_null
+
+      - name: payment_type
+        description: "Payment type identifier"
+
+
+      - name: trip_distance
+        description: "Trip distance in miles"
+        tests:
+          - not_null
+
+  # Dimension tables
+  - name: dim_location
+    description: "Location dimension with NYC taxi zones"
+    columns:
+      - name: borough
+        description: "NYC borough name"
+        tests:
+          - not_null
+
+      - name: zone
+        description: "Zone name within borough"
+        tests:
+          - not_null
+
+  - name: dim_vendor
+    description: "Vendor dimension table"
+    columns:
+      - name: vendor_id
+        description: "Vendor identifier"
+        tests:
+          - unique
+          - not_null
+
+      - name: vendor_name
+        description: "Vendor company name"
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_servicetype
+    description: "Service type dimension (Yellow/Green taxi)"
+    columns:
+      - name: service_type_id
+        description: "Service type identifier"
+        tests:
+          - unique
+          - not_null
+          - accepted_values:
+              values: [1, 2]
+
+  - name: dim_paymenttype
+    description: "Payment type dimension"
+    columns:
+      - name: paymentid
+        description: "Payment type identifier"
+        tests:
+          - unique
+          - not_null
+
+      - name: payment_type
+        description: "Payment type description"
+        tests:
+          - not_null
+
+  - name: dim_ratecode
+    description: "Rate code dimension"
+    columns:
+      - name: rate_code_id
+        description: "Rate code identifier"
+        tests:
+          - unique
+          - not_null
+          - accepted_values:
+              values: [1, 2, 3, 4, 5, 6, 99]
+
+      - name: rate_code_name
+        description: "Rate code description"
+        tests:
+          - not_null

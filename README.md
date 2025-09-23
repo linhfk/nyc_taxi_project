@@ -99,10 +99,10 @@ Layer Definitions:
 
 ### 2. Geographic Distribution - Borough Flow Matrix
 **Finding**: Manhattan serves as NYC's transportation nucleus
-- **Manhattan Dominance**: 362,210 intra-Manhattan trips (65% of total volume)
+- **Manhattan Dominance**: 362 trips per hour intra-Manhattan trips (65% of total volume)
 - **Key Corridors**:
-  - Manhattan ↔ Queens: 35,710 trips (airport connections)
-  - Manhattan ↔ Brooklyn: 32,070 trips (residential-commercial flow)
+  - Manhattan ↔ Queens: 22 trips per hour (airport connections)
+  - Brooklyn ↔ Brooklyn: 15 trips per hour (residential-commercial flow)
 - **Isolated Markets**: Staten Island shows minimal inter-borough activity (< 2%)
 
 **Business Impact**: Identifies opportunities for targeted service expansion and route optimization
@@ -149,7 +149,9 @@ Layer Definitions:
 
 ### 4. Orchestration (Apache Airflow)
 ```python
-DAG: s3_to_snowflake_dbt
+DAG:
+* nyc_taxi_to_s3
+* s3_to_snowflake_dbt
 - Schedule: Monthly execution
 - Task dependencies: Extract → Load → Transform → Quality Check
 - Integration with Cosmos for dbt orchestration
@@ -194,8 +196,8 @@ DAG: s3_to_snowflake_dbt
 ```
 nyc_taxi_project2025/
 ├── dags/
-│   ├── download_to_S3.py          # S3 ingestion pipeline
-│   └── dbt_dag_nyc_taxi_project_2025.py  # Main ELT orchestration
+│   ├── nyc_project_download to S3.py          # S3 ingestion pipeline
+│   └── nyc_taxi_project_ELT.py               # Main ELT orchestration
 ├── models/
 │   ├── staging/                   # Silver layer transformations
 │   └── marts/                     # Gold layer analytics
@@ -227,11 +229,9 @@ nyc_taxi_project2025/
 ## 🔮 Future Enhancements
 
 - [ ] **Pricing Analysis & Optimization**: Develop dynamic pricing models based on demand patterns
-- [ ] **Real-time Streaming**: Implement Kafka/Kinesis for live trip tracking
 - [ ] **ML Demand Forecasting**: Build predictive models for proactive fleet management
 - [ ] **Weather Integration**: Correlate trip patterns with weather conditions
 - [ ] **Event Impact Analysis**: Integrate city event data to predict demand spikes
-- [ ] **API Development**: Create RESTful APIs for real-time data access
 - [ ] **Automated Anomaly Detection**: Implement statistical monitoring for data quality
 
 ## 🎯 Business Value Delivered
@@ -242,10 +242,5 @@ This pipeline transforms raw taxi data into strategic insights, enabling:
 - **Data-driven** surge pricing recommendations
 - **Real-time** operational monitoring capabilities
 
-## 📧 Contact
-
-For questions or collaboration opportunities, please reach out via [LinkedIn](your-linkedin-url) or [Email](your-email)
-
----
 
 *This project demonstrates proficiency in modern data engineering practices, from problem identification to solution implementation, showcasing the ability to build scalable, maintainable, and production-ready data pipelines that deliver measurable business value.*

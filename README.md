@@ -144,6 +144,7 @@ DAG: s3_to_snowflake_dbt
 - **Partitioning Strategy**: Monthly partitions on pickup_date for query optimization
 - **Clustering**: Location-based clustering for geographic queries
 - **Caching**: Materialized views for frequently accessed aggregations
+- **Macro Efficiency**: Pre-compiled Jinja macros for reusable and optimized SQL logic
 
 ## 📈 Key Metrics Tracked
 
@@ -175,7 +176,7 @@ DAG: s3_to_snowflake_dbt
 nyc_taxi_project2025/
 ├── dags/
 │   ├── download_to_S3.py          # S3 ingestion pipeline
-│   └── dbt_dag_nyc_taxi_project_2025.py  # Main ELT orchestration
+│   └── nyc_taxi_project_ELT.py  # Main ELT orchestration
 ├── models/
 │   ├── staging/                   # Silver layer transformations
 │   └── marts/                     # Gold layer analytics

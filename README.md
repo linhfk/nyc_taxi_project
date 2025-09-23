@@ -224,13 +224,12 @@ For questions or collaboration opportunities, please reach out via [LinkedIn](yo
 
 ## 🚕 Project Overview
 
-This project demonstrates a production-grade data engineering pipeline that processes millions of NYC taxi trip records to deliver actionable insights about urban transportation patterns. Built with modern cloud technologies and following industry best practices, this solution showcases the complete data lifecycle from raw data ingestion to interactive business intelligence dashboards.
-
+This project demonstrates a production-grade data engineering pipeline that processes millions of NYC taxi trip records to deliver actionable insights about urban transportation patterns. Built with modern cloud technologies and following industry best practices, this solution showcases the complete data lifecycle from raw data ingestion to interactive business intelligence dashboards.The workflow begins by sourcing Yellow Taxi and Green Taxi data from NYC TLC, followed by storing raw data efficiently in AWS S3 buckets. The data is then meticulously transformed using dbt to ensure accuracy and completeness before being loaded into Snowflake for advanced analytics and querying. To orchestrate the entire process, Apache Airflow automates the data pipeline, while Looker Studio creates visually compelling dashboards that reveal urban movement patterns.With its well-orchestrated cloud-native architecture, this project exemplifies modern data engineering practices by seamlessly integrating data ingestion, transformation, storage, and visualization into a unified solution. 
 **Data Source**: [NYC Taxi & Limousine Commission Trip Record Data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 ## 🎯 Problem Statement
 
-As urban populations grow and transportation systems become increasingly complex, city planners and transportation companies face critical challenges:
+As urban populations grow and transportation systems become increasingly complex, city planners and transportation companies face critical challenges: how to opitimize the taxi service?
 
 ### Key Questions This Project Addresses:
 
@@ -259,7 +258,7 @@ As urban populations grow and transportation systems become increasingly complex
 This data engineering pipeline was built to transform raw trip records into actionable insights through:
 - Automated data ingestion and processing
 - Scalable cloud infrastructure
-- Real-time analytics capabilities
+- Batch processing
 - Interactive visualizations for stakeholder decision-making
 
 ## 🏗️ Architecture
@@ -287,9 +286,9 @@ This data engineering pipeline was built to transform raw trip records into acti
 │  │   TLC   │──────▶│    S3    │──────▶│              │─────▶│   Studio     │             │
 │  │   API   │       │          │       │  ┌────────┐  │      │              │             │
 │  └─────────┘       └──────────┘       │  │Bronze  │  │      └──────────────┘             │
-│                         │             │  │Layer   │  │             ▲                     │
-│                         │             │  └────────┘  │             │                     │
-│                         ▼             │      ▼       │             │                     │
+│                         │             │  │Layer   │  │                                   │
+│                         │             │  └────────┘  │                                   │
+│                         ▼             │      ▼       │                                   │
 │                    Raw Parquet        │  ┌────────┐  │      ┌──────────┐                 │
 │                       Files           │  │Silver  │  │      │   dbt    │                 │
 │                                       │  │Layer   │◀─┼──────│  Models  │                 │

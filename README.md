@@ -88,6 +88,11 @@ Layer Definitions:
 
 ## 📊 Key Analytics & Insights
 
+### Visulaization: [link](https://lookerstudio.google.com/reporting/f38e5682-fb02-4901-84e0-50245045571e/page/cq7XF/edit)
+
+
+
+
 ### 1. Trip Pattern Analysis - Peak Hour Heatmap
 **Finding**: Clear demand patterns emerge across time dimensions
 - **Weekday Rush Hours**: Consistent peaks at 8-9 AM and 6-7 PM (70-90 trips/hour average)

@@ -90,8 +90,8 @@ Layer Definitions:
 
 ### Visulaization: [link](https://lookerstudio.google.com/reporting/f38e5682-fb02-4901-84e0-50245045571e/page/cq7XF/edit)
 
-![1](<Screenshot 2025-09-21 at 11.10.09 PM.jpg>)
-
+![alt text](graph/graph1.png)
+![alt text](graph/graph2.png)
 
 ### 1. Trip Pattern Analysis - Peak Hour Heatmap
 **Finding**: Clear demand patterns emerge across time dimensions

@@ -145,7 +145,7 @@ Layer Definitions:
 
 **Staging Layer** (`L2_PROCESSING`):
 - `stg_taxi`: Unified taxi trip data with standardization
-- Dimensional models: `dim_date`, `dim_location`, `dim_vendor`, `dim_paymenttype`
+- Dimensional models: `dim_date`, `dim_location`, `dim_vendor`, `dim_paymenttype`,`dim_ratecode`
 - Fact table: `fact_trip` with business metrics
 
 **Mart Layer** (`L3_CONSUMPTION`):

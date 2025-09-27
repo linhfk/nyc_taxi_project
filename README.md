@@ -95,9 +95,9 @@ Layer Definitions:
 
 ### 1. Trip Pattern Analysis - Peak Hour Heatmap
 **Finding**: Clear demand patterns emerge across time dimensions
-- **Weekday Rush Hours**: Consistent peaks at 8-9 AM and 6-7 PM (70-90 trips/hour average)
-- **Thursday Phenomenon**: Highest demand day with 22% more evening trips than average
-- **Weekend Late Nights**: Saturdays show extended peak from 8 PM to 2 AM (80+ trips/hour)
+- **Weekday Rush Hours**: Consistent peaks at 8-9 AM and 5-9 PM (60-90 trips/hour average)
+- **Thursday Phenomenon**: Highest demand day with 10% more evening trips than average
+- **Weekend Late Nights**: Saturdays show extended peak from 6 PM to 12 AM (80+ trips/hour)
 - **Low Demand Windows**: 3-5 AM consistently shows minimal activity across all days
 
 **Business Impact**: Enables dynamic fleet allocation and surge pricing strategies
@@ -106,7 +106,7 @@ Layer Definitions:
 **Finding**: Manhattan serves as NYC's transportation nucleus
 - **Manhattan Dominance**: 362 trips per hour intra-Manhattan trips (65% of total volume)
 - **Key Corridors**:
-  - Manhattan ↔ Queens: 22 trips per hour (airport connections)
+  - Manhattan ↔ Queens: 36 trips per hour (airport connections)
   - Brooklyn ↔ Brooklyn: 15 trips per hour (residential-commercial flow)
 - **Isolated Markets**: Staten Island shows minimal inter-borough activity (< 2%)
 
@@ -114,12 +114,12 @@ Layer Definitions:
 
 ### 3. Trip Characteristics - Duration & Distance Segments
 **Duration Distribution**:
-- **Fast Trips (10-20 min)**: 167 average trips (73% of volume)
+- **Fast Trips (10-20 min)**: 167 average trips (78% of volume)
 - **Extended Trips (>30 min)**: Only 9 average trips (4% of volume)
 
 **Distance Analysis**:
-- **Short Hauls (<2 miles)**: 291 average trips (60% of total)
-- **Medium Distance (2-3 miles)**: 152 average trips (31% of total)
+- **Short Hauls (<2 miles)**: 291 average trips (63% of total)
+- **Medium Distance (2-3 miles)**: 152 average trips (33% of total)
 - **Long Distance (>3 miles)**: 13 average trips (3% of total)
 
 **Business Impact**: Validates NYC's efficient short-distance transportation model
@@ -167,7 +167,6 @@ DAG:
 
 - **Incremental Processing**: Only process new data using dbt incremental models
 - **Partitioning Strategy**: Monthly partitions on pickup_date for query optimization
-- **Clustering**: Location-based clustering for geographic queries
 - **Caching**: Materialized views for frequently accessed aggregations
 - **Macro Efficiency**: Pre-compiled Jinja macros for reusable and optimized SQL logic
 
@@ -214,7 +213,7 @@ nyc_taxi_project2025/
 ## 🎓 Skills Demonstrated
 
 - **Cloud Engineering**: AWS S3, Snowflake cloud data warehouse
-- **Data Modeling**: Dimensional modeling, fact/dimension design
+- **Data Modeling**: Dimensional modeling, fact/dimension design, start schema
 - **ETL/ELT**: End-to-end pipeline development
 - **SQL**: Complex analytical queries, window functions, CTEs
 - **Python**: Data processing, API integration, error handling
@@ -234,7 +233,6 @@ nyc_taxi_project2025/
 ## 🔮 Future Enhancements
 
 - [ ] **Pricing Analysis & Optimization**: Develop dynamic pricing models based on demand patterns
-- [ ] **ML Demand Forecasting**: Build predictive models for proactive fleet management
 - [ ] **Weather Integration**: Correlate trip patterns with weather conditions
 - [ ] **Event Impact Analysis**: Integrate city event data to predict demand spikes
 - [ ] **Automated Anomaly Detection**: Implement statistical monitoring for data quality

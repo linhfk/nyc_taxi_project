@@ -7,7 +7,7 @@ This project demonstrates a production-grade data engineering pipeline that proc
 
 ## 🎯 Problem Statement
 
-As urban populations grow and transportation systems become increasingly complex, city planners and transportation companies face critical challenges: how to opitimize the taxi service?
+As urban populations grow and transportation systems become increasingly complex, city planners and transportation companies face critical challenges: how to optimize the taxi service?
 
 ### Key Questions This Project Addresses:
 
@@ -88,7 +88,7 @@ Layer Definitions:
 
 ## 📊 Key Analytics & Insights
 
-### Visulaization: [link](https://lookerstudio.google.com/reporting/f38e5682-fb02-4901-84e0-50245045571e/page/cq7XF/edit)
+### Visualization: [link](https://lookerstudio.google.com/reporting/f38e5682-fb02-4901-84e0-50245045571e/page/cq7XF/edit)
 
 ![alt text](graph/graph1.png)
 ![alt text](graph/graph2.png)
@@ -213,7 +213,7 @@ nyc_taxi_project2025/
 ## 🎓 Skills Demonstrated
 
 - **Cloud Engineering**: AWS S3, Snowflake cloud data warehouse
-- **Data Modeling**: Dimensional modeling, fact/dimension design, start schema
+- **Data Modeling**: Dimensional modeling, fact/dimension design, star schema
 - **ETL/ELT**: End-to-end pipeline development
 - **SQL**: Complex analytical queries, window functions, CTEs
 - **Python**: Data processing, API integration, error handling
